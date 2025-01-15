@@ -1,6 +1,7 @@
 {
     "C_Cpp.default.compilerPath": "c:\\winlibs-x86_64-posix-seh-gcc-14.2.0-llvm-19.1.1-mingw-w64ucrt-12.0.0-r2\\mingw64\\bin\\gcc.exe",
     "files.associations": {
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "stdio.h": "c"
     }
 }

@@ -6,7 +6,7 @@ import numpy as np
 R_Earth = 6371  # Radius of Earth in kilometers
 
 # Load data
-data = pd.read_csv("orbit.csv")
+data = pd.read_csv("../data/orbit_3d.csv")
 
 # Calculate eccentricity
 # Distances from the center (Earth) to each point in the orbit

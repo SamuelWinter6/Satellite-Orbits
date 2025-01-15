@@ -8,7 +8,7 @@ This README provides a step-by-step guide to set up and configure the satellite 
 2. **System Requirements:**
    - Operating System: Windows/Linux/MacOS
    - Memory: Minimum 4 GB RAM
-   - Compiler: GCC or any compatible C compiler
+   - Compiler: GCC or any compatible C compiler: https://sourceforge.net/projects/mingw-w64/?
 
 ## Step 1: Clone the Repository
 

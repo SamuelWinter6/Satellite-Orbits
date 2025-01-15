@@ -7,11 +7,14 @@ int main() {
     Satellite sat = {1000, {6671, 0, 0}, {0, 7.73, 0}, 500, 10};  // Mass (kg), Position (km), Velocity (km/s), Fuel Mass (kg), Thrust (kN)
     Planet earth = {5.972e24, {0, 0, 0}, 6371};  // Mass, Position, Radius
 
+    // Initialize thrust direction
+    set_thrust_direction(&sat, 0.0, 1.0, 0.0);  // Initial thrust in the positive x-direction
+
     double timestep = 1;  // Reduced timestep to 10 seconds
-    int steps = 14400;       // Simulate for 2 hours
+    int steps = 14400;    // Simulate for 4 hours
     
     // Open a file to store the simulation results
-    FILE *file = fopen("orbit.csv", "w");
+    FILE *file = fopen("data/orbit_3d.csv", "w");  // For 3D
     fprintf(file, "time(s),x,y,z,vx,vy,vz,fuel_mass\n"); // Telemetry header
 
     for (int t = 0; t < steps; t++) {
@@ -31,7 +34,7 @@ int main() {
     }
 
     fclose(file);
-    printf("Simulation complete. Data saved to orbit.csv\n");
+    printf("Simulation complete. Data saved to orbit_3d.csv\n");
 
     return 0;
 }
