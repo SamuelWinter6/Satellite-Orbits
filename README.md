@@ -1,6 +1,125 @@
-# Satellite Orbit Simulation Setup
+# Satellite Orbit Simulation Project
 
-This README provides a step-by-step guide to set up and configure the satellite orbit simulation project. Follow these instructions carefully to ensure the simulation runs smoothly.
+This README provides a summary & step-by-step guide to set up and configure the satellite orbit simulation project. Follow these instructions carefully to ensure the simulation runs.
+
+<!-- SUMMARY_START -->
+## **Summary**
+This project simulates the motion of a **satellite orbiting a planet (Earth)** in both **2D and 3D** using **Newtonian mechanics**. The simulation calculates the satellite's **trajectory, velocity, and fuel consumption**, while considering the **gravitational force** from the Earth and **thrust acceleration** (if applied).
+
+### **Features**
+- Simulates **2D and 3D** orbital motion.
+- Uses **Newton’s laws** and **Keplerian mechanics**.
+- Implements **thrust control** for maneuvering.
+- Performs **collision detection** with the planet.
+- Outputs telemetry data to **CSV files** for analysis.
+
+---
+
+## **Mathematical Foundations**
+The core physics of the simulation rely on **gravitational dynamics** and **Newton’s laws of motion**.
+
+### **1. Newton’s Law of Universal Gravitation**
+The gravitational force exerted by a planet on a satellite is:
+
+\[
+F = \frac{G M m}{r^2}
+\]
+
+where:
+- \( G = 6.67430 \times 10^{-20} \) km³/kg/s² (gravitational constant),
+- \( M \) = mass of the planet (Earth: \( 5.972 \times 10^{24} \) kg),
+- \( m \) = mass of the satellite,
+- \( r \) = distance between the satellite and the planet’s center.
+
+This force is always **attractive** and acts **radially inward** toward the center of the planet.
+
+### **2. Acceleration Due to Gravity**
+Using Newton’s second law:
+
+\[
+F = m a
+\]
+
+Solving for acceleration:
+
+\[
+a = \frac{G M}{r^2}
+\]
+
+The gravitational acceleration components in **2D** and **3D** are:
+
+\[
+a_x = \frac{F}{m} \times \frac{dx}{r}, \quad a_y = \frac{F}{m} \times \frac{dy}{r}
+\]
+
+For 3D:
+
+\[
+a_x = \frac{F}{m} \times \frac{dx}{r}, \quad a_y = \frac{F}{m} \times \frac{dy}{r}, \quad a_z = \frac{F}{m} \times \frac{dz}{r}
+\]
+
+where:
+- \( dx, dy, dz \) are the differences in position between the satellite and the planet.
+
+### **3. Orbital Velocity**
+For **circular orbits**, the velocity required to maintain orbit is given by:
+
+\[
+v = \sqrt{\frac{G M}{r}}
+\]
+
+For **elliptical orbits**, Kepler’s third law applies:
+
+\[
+T^2 = \frac{4 \pi^2 a^3}{G M}
+\]
+
+where \( a \) is the **semi-major axis** and \( T \) is the **orbital period**.
+
+### **4. Thrust Mechanics**
+The satellite can change velocity using **thrust acceleration**, computed as:
+
+\[
+a_{\text{thrust}} = \frac{T}{m}
+\]
+
+where:
+- \( T \) = thrust force in kN,
+- \( m \) = total mass of the satellite.
+
+The thrust is applied in a user-defined **direction vector**, normalized to unit length:
+
+\[
+\hat{t} = \frac{(x, y, z)}{\sqrt{x^2 + y^2 + z^2}}
+\]
+
+Fuel consumption follows the **rocket equation**:
+
+\[
+\Delta m = \frac{T \cdot \Delta t}{v_{\text{exhaust}}}
+\]
+
+where:
+- \( v_{\text{exhaust}} \) is the exhaust velocity (3 km/s in this simulation).
+
+### **5. Velocity and Position Updates**
+Using **numerical integration (Euler’s Method)**:
+
+\[
+v_{\text{new}} = v_{\text{old}} + (a_{\text{gravity}} + a_{\text{thrust}}) \cdot \Delta t
+\]
+
+\[
+r_{\text{new}} = r_{\text{old}} + v_{\text{new}} \cdot \Delta t
+\]
+
+---
+
+This project provides a **functional** and **expandable** satellite simulation using:
+- **Newtonian mechanics** for gravity,
+- **Thrust dynamics** for maneuvering,
+- **Numerical integration** for motion updates.
+<!-- SUMMARY_END -->
 
 ## Prerequisites
 

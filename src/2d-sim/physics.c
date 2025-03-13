@@ -66,9 +66,9 @@ void update_position(Satellite *sat, Planet *planet, double timestep) {
         exit(1);  // Stop simulation
     }
 
-    // Debugging output
-    printf("Fuel: %.2f, Thrust Acceleration: (%.6e, %.6e), Velocity: (%.6e, %.6e), Position: (%.6e, %.6e)\n",
-           sat->fuel_mass, ax_thrust, ay_thrust,
-           sat->velocity[0], sat->velocity[1],
-           sat->position[0], sat->position[1]);
+    // // Debugging output
+    // printf("Fuel: %.2f, Thrust Acceleration: (%.6e, %.6e), Velocity: (%.6e, %.6e), Position: (%.6e, %.6e)\n",
+    //        sat->fuel_mass, ax_thrust, ay_thrust,
+    //        sat->velocity[0], sat->velocity[1],
+    //        sat->position[0], sat->position[1]);
 }
